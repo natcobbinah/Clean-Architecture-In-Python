@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 import os, sys
 
-parent_dir = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), '..')
-)
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.append(parent_dir)
 from rentomatic.repository.memrepo import MemRepo
 from rentomatic.use_cases.room_list import room_list_use_case
+from rentomatic.app_requests.room_list import build_room_list_request
+import requests
 
 
 
@@ -41,7 +41,10 @@ rooms = [
     },
 ]
 
-repo = MemRepo(rooms)
-result = room_list_use_case(repo)
+url_request = requests.get("https://localhost:5000/rooms")
 
-print([room.to_dict() for room in result])
+request = build_room_list_request(url_request)
+repo = MemRepo(rooms)
+response = room_list_use_case(repo, request)
+
+print([room.to_dict() for room in response.value])

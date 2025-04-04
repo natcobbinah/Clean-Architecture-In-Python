@@ -1,11 +1,12 @@
-import uuid 
-from rentomatic.domain.room import Room 
+import uuid
+from rentomatic.domain.room import Room
+
 
 def test_room_model_init():
-    code = uuid.uuid4() 
+    code = uuid.uuid4()
 
     init_dict = {
-        "code": code, 
+        "code": code,
         "size": 200,
         "price": 10,
         "longitude": -0.09998975,

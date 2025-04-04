@@ -1,18 +1,19 @@
 import uuid
 import json
 
-from rentomatic.serializers.room import RoomJsonEncoder 
-from rentomatic.domain.room import Room 
+from rentomatic.serializers.room import RoomJsonEncoder
+from rentomatic.domain.room import Room
+
 
 def test_serializer_domain_room():
     code = uuid.uuid4()
 
     room = Room(
-        code=code, 
-        size=200, 
+        code=code,
+        size=200,
         price=10,
         longitude=-0.09998975,
-        latitude=51.75436293
+        latitude=51.75436293,
     )
 
     expected_json = f"""

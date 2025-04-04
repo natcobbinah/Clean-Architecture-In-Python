@@ -1,9 +1,10 @@
-import pytest 
-import uuid 
+import pytest
+import uuid
 from unittest import mock
 
-from rentomatic.domain.room import Room 
+from rentomatic.domain.room import Room
 from rentomatic.use_cases.room_list import room_list_use_case
+
 
 @pytest.fixture
 def domain_rooms():
@@ -12,7 +13,7 @@ def domain_rooms():
         size=215,
         price=39,
         longitude=-0.09998975,
-        latitude=51.75436293
+        latitude=51.75436293,
     )
 
     room_2 = Room(
@@ -39,14 +40,14 @@ def domain_rooms():
         latitude=51.39916678,
     )
 
-    return [room_1,room_2, room_3, room_4]
+    return [room_1, room_2, room_3, room_4]
+
 
 def test_room_list_without_parameters(domain_rooms):
     repo = mock.Mock()
-    repo.list.return_value = domain_rooms 
+    repo.list.return_value = domain_rooms
 
     result = room_list_use_case(repo)
-    repo.list.assert_called_with() 
+    repo.list.assert_called_with()
 
     assert result == domain_rooms
-
