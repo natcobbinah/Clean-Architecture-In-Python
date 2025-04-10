@@ -4,7 +4,7 @@ from rentomatic.responses import (
     ResponseTypes,
     build_response_from_invalid_request,
 )
-from rentomatic.requests.room_list import RoomListInvalidRequest
+from rentomatic.app_requests.room_list import RoomListInvalidRequest
 
 SUCCESS_VALUE = {"key": ["value1", "value2"]}
 GENERIC_RESPONSE_TYPE = "Response"

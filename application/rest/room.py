@@ -4,7 +4,7 @@ import json
 from rentomatic.repository.memrepo import MemRepo
 from rentomatic.use_cases.room_list import room_list_use_case
 from rentomatic.serializers.room import RoomJsonEncoder
-from rentomatic.requests.room_list import build_room_list_request
+from rentomatic.app_requests.room_list import build_room_list_request
 from rentomatic.responses import ResponseTypes
 
 blueprint = Blueprint("room", __name__)

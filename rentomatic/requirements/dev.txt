@@ -5,3 +5,7 @@ wheel
 watchdog
 flake8
 Sphinx
+Flask
+SQLAlchemy
+psycopg2
+Flask-SQLAlchemy
